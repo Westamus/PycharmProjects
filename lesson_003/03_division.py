@@ -11,3 +11,10 @@
 a, b = 179, 37
 
 # TODO здесь ваш код
+
+int_div = 0
+while a >= 0:
+    a = a - b
+    if a > 0:
+        int_div = int_div + 1
+print(int_div)
