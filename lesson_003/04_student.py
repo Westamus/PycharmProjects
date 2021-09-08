@@ -8,7 +8,24 @@
 # чтобы можно было прожить учебный год (10 месяцев), используя только эти деньги и стипендию.
 # Формат вывода:
 #   Студенту надо попросить ХХХ.ХХ рублей
+# Пример вывода:
+# 2600 руб.
+
 
 educational_grant, expenses = 10000, 12000
 
 # TODO здесь ваш код
+
+rise_in_prices = 0
+month = 1
+ask_for_money = 0
+while month <= 10:
+    if month == 1:
+        month += 1
+        rise_in_prices = expenses - educational_grant
+    elif month > 1:
+        month += 1
+        expenses *= 1.03
+        rise_in_prices = rise_in_prices + expenses - educational_grant
+
+print(round(rise_in_prices, 2))
