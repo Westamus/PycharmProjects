@@ -27,7 +27,29 @@ import simple_draw as sd
 # sd.line()
 # Результат решения см lesson_004/results/exercise_01_shapes.jpg
 
-# TODO здесь ваш код
+# функция рисования фигуры
+def figure(start_point, side_count, angle, length):
+    vector = start_point
+    angle_step = 360 / side_count
+    step = angle_step
+    for side in range(side_count):
+        if side == 0:
+            vector = sd.get_vector(start_point=vector, angle=angle, length=length+3)
+        elif side == side_count - 1:
+            sd.line(vector.end_point, start_point)
+            break
+        else:
+            vector = sd.get_vector(start_point=vector.end_point, angle=angle + step, length=length)
+            step += angle_step
+        vector.draw()
+
+side_input = int(input('Какую фигуру вам нарисовать (3,4,5,6,..):'))
+length_input = int(input('Какая длина стороны:'))
+x = input('Укажите координату x:')
+y = input('Укажите координату y:')
+angle_input = int(input('Под каким углом повернуть фигуру:'))
+point = sd.get_point(x, y)
+figure(start_point=point, side_count=side_input, angle=angle_input, length=length_input)
 
 # Часть 1-бис.
 # Попробуйте прикинуть обьем работы, если нужно будет внести изменения в этот код.
