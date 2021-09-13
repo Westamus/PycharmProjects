@@ -33,17 +33,26 @@ def figure(start_point, side_count, angle, length, color):
 
 
 side_input = int(input('Какую фигуру вам нарисовать (3,4,5,6,..):'))
-color_dict = {1: 'COLOR_RED', 2: 'COLOR_ORANGE', 3: 'COLOR_YELLOW',
-              4: 'COLOR_GREEN', 5: 'COLOR_CYAN', 6: 'COLOR_BLUE', 7: 'COLOR_PURPLE'}
-# for color_list range(6):
-#     color_tuple = dict(color_dict)
-#     print()
+color_dict = {1: ('Красный', sd.COLOR_RED),
+              2: ('Ораньжевый', sd.COLOR_ORANGE),
+              3: ('Желтый', sd.COLOR_YELLOW),
+              4: ('Зеленый', sd.COLOR_GREEN),
+              5: ('Голубой', sd.COLOR_CYAN),
+              6: ('Синий', sd.COLOR_BLUE),
+              7: ('Фиалетовый', sd.COLOR_PURPLE)}
+
+print('Возможные цвета:')
+for color_num, color_name in color_dict.items():
+    print('         ', color_num, ':', color_name[0].lower())
+
+color_input = int(input('Выбери цвет:'))
+
 length_input = 100  # int(input('Какая длина стороны:'))
-x = 300  # input('Укажите координату x:')
-y = 300  # input('Укажите координату y:')
+x = 250  # input('Укажите координату x:')
+y = 250  # input('Укажите координату y:')
 angle_input = 0  # int(input('Под каким углом повернуть фигуру:'))
 point = sd.get_point(x, y)
-color = sd.COLOR_RED
+color = color_dict[color_input][1]
 figure(start_point=point, side_count=side_input, angle=angle_input, length=length_input, color=color)
 
 sd.pause()
